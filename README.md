@@ -49,11 +49,13 @@ yourls:
         - 80:80
     volumes:
         - /home/plugins:/usr/share/host
+    restart: always
 yourlsmysql:
     image: mysql
     environment:
         - MYSQL_ROOT_PASSWORD=PASSWORD
         - MYSQL_DATABASE=yourls
+    restart: always
 ```
 Set `YOURL_PASSWORD`, `YOURLS_SITE` and `MYSQL_ROOT_PASSWORD` as you prefer.
 
@@ -68,6 +70,8 @@ By now, your container must be up and running properly! Easy, huh?
 
 ### Quick-tip:
 To run it as a daemon, simply add a `-d` to the end of the command
+### Quick-tip2:
+The command "restart: always" make your container persistent on failure or server reboot, use it with the previous tip.  
 ```
 docker-compose up -d
 ```
