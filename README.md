@@ -55,7 +55,7 @@ yourlsmysql:
     environment:
         - MYSQL_ROOT_PASSWORD=PASSWORD
         - MYSQL_DATABASE=yourls
-    Volumes:
+    volumes:
         - ./db:/var/lib/mysql
     restart: always
 ```
