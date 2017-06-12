@@ -48,13 +48,15 @@ yourls:
     ports:
         - 80:80
     volumes:
-        - /home/plugins:/usr/share/host
+        - ./plugins:/usr/share/nginx/yourls/user/plugins
     restart: always
 yourlsmysql:
     image: mysql
     environment:
         - MYSQL_ROOT_PASSWORD=PASSWORD
         - MYSQL_DATABASE=yourls
+    volumes:
+        - ./db:/var/lib/mysql
     restart: always
 ```
 Set `YOURL_PASSWORD`, `YOURLS_SITE` and `MYSQL_ROOT_PASSWORD` as you prefer.
